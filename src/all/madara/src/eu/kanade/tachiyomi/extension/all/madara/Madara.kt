@@ -297,7 +297,7 @@ abstract class Madara(
         return manga
     }
 
-    override fun searchMangaNextPageSelector() = "div.nav-previous, nav.navigation-ajax"
+    override fun searchMangaNextPageSelector(): String? = "div.nav-previous, nav.navigation-ajax"
 
     // Manga Details Parse
 
@@ -346,7 +346,7 @@ abstract class Madara(
         return manga
     }
 
-    private fun imageFromElement(element: Element): String? {
+    protected fun imageFromElement(element: Element): String? {
         return when {
             element.hasAttr("data-src") -> element.attr("abs:data-src")
             element.hasAttr("data-lazy-src") -> element.attr("abs:data-lazy-src")
